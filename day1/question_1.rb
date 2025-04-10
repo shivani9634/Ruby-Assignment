@@ -1,3 +1,5 @@
+# Write a program to display a number is prime or not
+
 def isPrime(num)
   if num<=1
     return false

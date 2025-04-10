@@ -1,3 +1,5 @@
+# Write a program to find IP address class
+
 def ipClass(ip)
   octets = ip.split('.').map(&:to_i)
   if octets.length == 4 && octets.all? { |octet| octet.between?(0, 255) }

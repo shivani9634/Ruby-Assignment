@@ -1,3 +1,5 @@
+# Regex for mobile number, email address, name, gender(M / F) and  amount
+
 def mobileNumber(number)
   if(number.match(/^\+91?\d{10}$/))
     return "Mobile Number is Correct"
