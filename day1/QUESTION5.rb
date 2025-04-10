@@ -15,10 +15,10 @@ def ipClass(ip)
     else
       return "Invalid IP address"
     end
+  else
+    return "Invalid IP address"
   end
 end
 
-puts ipClass("187.168.1.2")   
-puts ipClass("100.11.11.1")      
-puts ipClass("10.0.0.1") 
+puts ipClass("256.168.1.0")
 
