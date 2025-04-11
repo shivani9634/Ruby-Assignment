@@ -1,10 +1,11 @@
 # Hangman Game : This game is basically fro guessing the word, in which a player tries to guess the hidden word by suggesting the different alphabetical
 # words. Game have the limit on the number of guesses allowed.
 
-word = "josh"
-hidden_word = "_," * word.length
+words = ["josh", "ruby", "game", "code", "logic", "debug", "array", "guess"]
+word = words.sample 
+hidden_word = "_" * word.length
 guesses = []
-maximum_attempts = 5
+maximum_attempts = 10
 attempts = 0
 
 puts "Welcome to Hangman Game"
