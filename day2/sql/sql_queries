@@ -1,0 +1,115 @@
+DATABASE ASSIGNMENT: DML QUERIES
+Databse created named as company with the table employee and perfor all the dml queries on this:
+
+mysql> create database company;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use company;
+Database changed
+mysql> CREATE TABLE employee (
+    ->     employee_id INT PRIMARY KEY,
+    ->     first_name VARCHAR(50),
+    ->     last_name VARCHAR(50),
+    ->     department VARCHAR(50),
+    ->     salary DECIMAL(10, 2),
+    ->     hire_date DATE,
+    ->     is_active BOOLEAN
+    -> );
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> INSERT INTO employee VALUES 
+    -> (11, 'Rahul', 'Sharma', 'Engineering', 85000.00, '2021-02-15', TRUE),
+    -> (12, 'Priya', 'Verma', 'HR', 58000.00, '2020-06-01', TRUE),
+    -> (13, 'Ankit', 'Patel', 'Sales', 52000.00, '2019-09-10', TRUE),
+    -> (14, 'Sneha', 'Mehta', 'Finance', 67000.00, '2018-11-22', FALSE),
+    -> (15, 'Arjun', 'Reddy', 'Marketing', 61000.00, '2022-04-18', TRUE),
+    -> (16, 'Neha', 'Singh', 'IT', 73000.00, '2017-08-05', TRUE),
+    -> (17, 'Vikram', 'Iyer', 'Engineering', 90000.00, '2023-01-12', TRUE),
+    -> (18, 'Divya', 'Nair', 'HR', 60000.00, '2020-10-30', FALSE),
+    -> (19, 'Rohan', 'Das', 'Support', 50000.00, '2021-06-25', TRUE),
+    -> (20, 'Aishwarya', 'Kumar', 'Legal', 72000.00, '2019-03-14', TRUE);
+Query OK, 10 rows affected (0.01 sec)
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1. SELECT : 
+mysql> select first_name, last_name from employee where department ='Sales';
++------------+-----------+
+| first_name | last_name |
++------------+-----------+
+| Ankit      | Patel     |
++------------+-----------+
+1 row in set (0.00 sec)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2. INSERT :
+mysql> INSERT INTO employee (employee_id, first_name, last_name, department, salary,hire_date,is_active) VALUES (10, 'Shivani', 'Poonia', 'Development', 900000,'2025-04-01',TRUE);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from employee;
++-------------+------------+-----------+-------------+-----------+------------+-----------+
+| employee_id | first_name | last_name | department  | salary    | hire_date  | is_active |
++-------------+------------+-----------+-------------+-----------+------------+-----------+
+|          10 | Shivani    | Poonia    | Development | 900000.00 | 2025-04-01 |         1 |
+|          11 | Rahul      | Sharma    | Engineering |  85000.00 | 2021-02-15 |         1 |
+|          12 | Priya      | Verma     | HR          |  58000.00 | 2020-06-01 |         1 |
+|          13 | Ankit      | Patel     | Sales       |  52000.00 | 2019-09-10 |         1 |
+|          14 | Sneha      | Mehta     | Finance     |  67000.00 | 2018-11-22 |         0 |
+|          15 | Arjun      | Reddy     | Marketing   |  61000.00 | 2022-04-18 |         1 |
+|          16 | Neha       | Singh     | IT          |  73000.00 | 2017-08-05 |         1 |
+|          17 | Vikram     | Iyer      | Engineering |  90000.00 | 2023-01-12 |         1 |
+|          18 | Divya      | Nair      | HR          |  60000.00 | 2020-10-30 |         0 |
+|          19 | Rohan      | Das       | Support     |  50000.00 | 2021-06-25 |         1 |
+|          20 | Aishwarya  | Kumar     | Legal       |  72000.00 | 2019-03-14 |         1 |
++-------------+------------+-----------+-------------+-----------+------------+-----------+
+11 rows in set (0.00 sec)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+3. UPDATE :
+mysql> UPDATE employee SET salary = salary * 5.10 WHERE department = 'Engineering';
+Query OK, 2 rows affected (0.01 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> select * from employee;
++-------------+------------+-----------+-------------+-----------+------------+-----------+
+| employee_id | first_name | last_name | department  | salary    | hire_date  | is_active |
++-------------+------------+-----------+-------------+-----------+------------+-----------+
+|          10 | Shivani    | Poonia    | Development | 900000.00 | 2025-04-01 |         1 |
+|          11 | Rahul      | Sharma    | Engineering | 433500.00 | 2021-02-15 |         1 |
+|          12 | Priya      | Verma     | HR          |  58000.00 | 2020-06-01 |         1 |
+|          13 | Ankit      | Patel     | Sales       |  52000.00 | 2019-09-10 |         1 |
+|          14 | Sneha      | Mehta     | Finance     |  67000.00 | 2018-11-22 |         0 |
+|          15 | Arjun      | Reddy     | Marketing   |  61000.00 | 2022-04-18 |         1 |
+|          16 | Neha       | Singh     | IT          |  73000.00 | 2017-08-05 |         1 |
+|          17 | Vikram     | Iyer      | Engineering | 459000.00 | 2023-01-12 |         1 |
+|          18 | Divya      | Nair      | HR          |  60000.00 | 2020-10-30 |         0 |
+|          19 | Rohan      | Das       | Support     |  50000.00 | 2021-06-25 |         1 |
+|          20 | Aishwarya  | Kumar     | Legal       |  72000.00 | 2019-03-14 |         1 |
++-------------+------------+-----------+-------------+-----------+------------+-----------+
+11 rows in set (0.01 sec)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+4. DELETE :
+mysql> DELETE FROM employee
+    -> WHERE last_name = 'Verma';
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from employee
+    -> ;
++-------------+------------+-----------+-------------+-----------+------------+-----------+
+| employee_id | first_name | last_name | department  | salary    | hire_date  | is_active |
++-------------+------------+-----------+-------------+-----------+------------+-----------+
+|          10 | Shivani    | Poonia    | Development | 900000.00 | 2025-04-01 |         1 |
+|          11 | Rahul      | Sharma    | Engineering | 433500.00 | 2021-02-15 |         1 |
+|          13 | Ankit      | Patel     | Sales       |  52000.00 | 2019-09-10 |         1 |
+|          14 | Sneha      | Mehta     | Finance     |  67000.00 | 2018-11-22 |         0 |
+|          15 | Arjun      | Reddy     | Marketing   |  61000.00 | 2022-04-18 |         1 |
+|          16 | Neha       | Singh     | IT          |  73000.00 | 2017-08-05 |         1 |
+|          17 | Vikram     | Iyer      | Engineering | 459000.00 | 2023-01-12 |         1 |
+|          18 | Divya      | Nair      | HR          |  60000.00 | 2020-10-30 |         0 |
+|          19 | Rohan      | Das       | Support     |  50000.00 | 2021-06-25 |         1 |
+|          20 | Aishwarya  | Kumar     | Legal       |  72000.00 | 2019-03-14 |         1 |
++-------------+------------+-----------+-------------+-----------+------------+-----------+
+10 rows in set (0.01 sec)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
