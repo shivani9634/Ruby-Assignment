@@ -1,3 +1,17 @@
+#Assignment - 
+#An application for handling data of as many countries as we can. Example of what data that we can have:
+#Population
+#GDP(Gross Domestic Production)
+#States
+#Army Strength
+#State of country(developing, developed)
+#Etc.
+#On the basis of all these data we will be building modules to conceive various outputs like:
+#Whether that country will get a loan from the IMF (International Monetary Fund) or WB (World bank).
+#Whether the country can have a seat in the UN (United Nations) Security council.
+#Whether the country can win the war or not
+
+
 module LoanEligibility
 
   def self.loan_eligibility_of_country(country)
@@ -25,7 +39,7 @@ end
   end
 
   module WarOutcome
-    
+
     def self.war_outcome(country)
       if country.army_strength > 5000 && country.military_equipments > 10000 && country.status == "developed"
         puts "#{country.name} is more likely to win the war. "
