@@ -11,45 +11,9 @@
 #Whether the country can have a seat in the UN (United Nations) Security council.
 #Whether the country can win the war or not
 
-
-module LoanEligibility
-
-  def self.loan_eligibility_of_country(country)
-    if country.gdp > 100 && country.status == "developed"
-      puts "#{country.name} is eligible for loan from World Bank "
-    elsif country.gdp < 100 && country.status == "developing"
-      puts " #{country.name} is eligible for loan from International Monetary Fund "
-    elsif country.gdp < 50 && country.status == "under developed"
-      puts " #{country.name} is not eligible for loan "
-    else
-      puts "Entered GDP is not a valid amount"  
-    end
-  end
-end
-  
-  module UnitedNationSecurityCouncil
-
-    def self.security_council_elgibility(country)
-      if country.status =="developed" && country.army_strength > 70000
-        puts "#{country.name} secured the seat in the United Nation Security Council"
-      else 
-        puts "#{country.name} not able to secure the seat in the United Nation Security Council"  
-      end
-    end
-  end
-
-  module WarOutcome
-
-    def self.war_outcome(country)
-      if country.army_strength > 5000 && country.military_equipments > 10000 && country.status == "developed"
-        puts "#{country.name} is more likely to win the war. "
-      elsif country.army_strength < 5000 && country.military_equipments < 10000 && country.status == "developing"
-        puts "#{country.name} is less likely to win the war "
-      else
-        puts "#{country.name} not have sufficient resources to win the war. "
-      end
-    end
-  end
+require_relative 'loan_eligibility.rb'
+require_relative 'united_nation_security_council.rb'
+require_relative 'war_outcome.rb'
 
 class Country
 
@@ -90,7 +54,7 @@ puts "Enter the GDP of the Country (in Billions) : "
 gdp = gets.to_f()
 
 puts "Enter the number of military officers in the Country : "
-army_strength = gets.to_f()
+army_strength = gets.to_i()
 
 puts "Enter the number of military equipments in the Country : "
 military_equipments = gets.to_i
