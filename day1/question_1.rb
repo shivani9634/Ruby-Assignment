@@ -1,0 +1,15 @@
+# Write a program to display a number is prime or not
+
+def isPrime(num)
+  if num<=1
+    return false
+  end
+  (2..Math.sqrt(num)).each do |i|
+    if num%i == 0
+      return false
+    end
+  end
+    return true
+end
+
+isprime(11)
