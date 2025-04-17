@@ -35,12 +35,12 @@ class Country
   end
 
   def country_information
-    puts "Country : #{@name}"
-    puts "Population of the Country : #{@population}"
-    puts "GDP of the Country : #{@gdp}"
-    puts "Military Strength : #{@army_strength}"
+    puts "Country : #{name}"
+    puts "Population of the Country : #{population}"
+    puts "GDP of the Country : #{gdp}"
+    puts "Military Strength : #{army_strength}"
     puts "Military Equipments : #{military_equipments}"
-    puts "Develpoment of Country : #{@status}"
+    puts "Develpoment of Country : #{status}"
   end
 end
 
